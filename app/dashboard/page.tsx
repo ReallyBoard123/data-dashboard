@@ -26,8 +26,8 @@ import {
 } from '@/components/ui/dialog';
 
 // Import sample data for initial load
-import sampleTimeSeriesData from '@/data/sample-data.json';
-import sampleLayoutData from '@/data/process-metadata.json';
+import sampleTimeSeriesData from '@/data/sample_data.json';
+import sampleLayoutData from '@/data/process_metadata.json';
 
 export default function DashboardPage() {
   const { setTimeSeriesData, setLayoutData, isLoading } = useDataStore();

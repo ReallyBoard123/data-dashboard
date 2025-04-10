@@ -7,7 +7,7 @@ import { calculateTimeByRegion } from '@/lib/data/processing';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
-import { IconPlay, IconPause } from '@tabler/icons-react';
+import { IconPlayerPause, IconPlayerPlay } from '@tabler/icons-react';
 import { formatDuration } from '@/lib/utils';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
@@ -159,7 +159,7 @@ export function RegionMap() {
               size="icon"
               onClick={() => setIsPlaying(!isPlaying)}
             >
-              {isPlaying ? <IconPause size={16} /> : <IconPlay size={16} />}
+              {isPlaying ? <IconPlayerPause size={16} /> : <IconPlayerPlay size={16} />}
             </Button>
             <Select
               value={playbackSpeed.toString()}

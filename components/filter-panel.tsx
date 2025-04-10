@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { addDays, format, parse } from 'date-fns';
 import { useDataStore } from '@/store/useDataStore';
 import { useI18nStore } from '@/store/useI18nStore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,7 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { IconRefresh } from '@tabler/icons-react';
-
+import { DatePickerWithRange } from '@/components/ui/date-range-picker';
 
 export function FilterPanel() {
   const { 
@@ -69,6 +70,9 @@ export function FilterPanel() {
   if (!timeSeriesData) {
     return null;
   }
+
+  // Just use the DatePickerWithRange component instead of trying to create a custom one
+  // We'll let the component handle its internal state, and we'll update our store when needed
   
   return (
     <Card>
@@ -90,18 +94,8 @@ export function FilterPanel() {
             <h3 className="text-sm font-medium mb-2">
               {locale === 'en' ? 'Date Range' : 'Datumsbereich'}
             </h3>
-            <DateRangePicker
-              from={dateRange?.[0] ? new Date(dateRange[0]) : undefined}
-              to={dateRange?.[1] ? new Date(dateRange[1]) : undefined}
-              onSelect={(range) => {
-                if (range?.from && range?.to) {
-                  setDateRange([
-                    range.from.toISOString().split('T')[0],
-                    range.to.toISOString().split('T')[0]
-                  ]);
-                }
-              }}
-            />
+            {/* Just use the standard DatePickerWithRange component */}
+            <DatePickerWithRange />
           </div>
           
           {/* Employees */}
